@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         
-        
+         $(function () {
+             $("#btn").toggle(function () {
+                 // 1、改变div背景色为green
+                 $("#myDiv").css("backgroundColor", "green")
+             }, function () {
+                 // 2、改变div背景色为pink
+                 $("#myDiv").css("backgroundColor", "pink")
+             })
+         })
 
     </script>
 </head>
