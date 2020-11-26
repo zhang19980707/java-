@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript"></script>
+    <script>
+        // 1、js方式遍历元素
+     /*   $(function () {
+            var citys = $("#city li");
+
+            // 遍历
+            for (var i = 0; i < citys.length; i++){
+                alert(i+"=:"+citys[i].innerHTML);
+            }
+        })*/
+
+        // 2、jq对象.each(callback)方法遍历
+      /*  $(function () {
+            var citys = $("#city li");
+            citys.each(function (index, element) {
+                // 3.1、获取li对象的第一种方式
+                // alert(this.innerHTML);
+                // alert($(this).html()); // 将this的js对象转换成jq对象
+                // 3.2、获取li对象的第二种方式，在回调函数中定义参数 index（）element（）
+                // alert(index+":"+element.innerHTML);
+                if ("上海" == $(element).html()){
+                    return true;
+                }
+                alert(index+":"+$(element).html());  // 将element的js对象转换成jq对象
+            })
+        })*/
+
+        // 3、$.each(object, [callback])
+/*        $(function () {
+            var citys = $("#city li");
+            $.each(citys, function (index, element) {
+                if ("天津" == element.innerHTML){
+                    return true;
+                }
+                alert(index+":"+$(element).html());
+            })
+        })*/
+
+        //  4、for..of: jquery 3.0 版本之后提供的方式
+        $(function () {
+            var citys = $("#city li");
+            for (li of citys){
+                alert($(li).html())
+            }
+        })
+
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展选择器</title>
+    <style type="text/css">
+        /*子选择器*/
+        div p{
+            color:red;
+        }
+        /*父选择器*/
+        div > p {
+            border: 1px solid;
+        }
+        /*属性选择器*/
+        input[type='text'] {
+            border: 5px solid;
+        }
+        /*伪类选择器*/
+        a:link{
+            /*默认状态*/
+            color:pink;
+        }
+        a:hover{
+            /*鼠标悬浮状态*/
+            color: green;
+        }
+        a:active{
+            /*鼠标点击时*/
+            color: yellow;
+        }
+        a:visited{
+            /*点击过以后*/
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div><p>传智播客</p></div>
+    <p>黑马程序员</p>
+    <div>aaa</div>
+
+    <input type="text">
+    <input type="password">
+
+    <br>
+    <a href="#">官网</a>
+</body>
+</html>
