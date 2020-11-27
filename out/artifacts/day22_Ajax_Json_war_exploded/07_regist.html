@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+        // 在界面加载完成之后
+        $(function () {
+            // 给username绑定blur事件
+            $("#username").blur(function () {
+                // 获取username文本输入的值
+                var username = $(this).val();
+                // 发送ajax校验数据
+                // 期望服务器返回数据格式 {"userExsit": true, "msg": "此用户名太受欢迎，请更换一个"}
+                //                      {"userExsit": false, "msg": "用户名可用"}
+                $.get("findUserServlet", {username:username}, function (data) {
+                    // 判断userExist间的值是否为true
+                    var span = $("#s_username");
+                    if (data.userExsit){
+                       span.css("color","red");
+                       span.html(data.msg);
+                    } else {
+                       span.css("color","green");
+                       span.html(data.msg);
+                    }
+                    
+                }, "json")
+            })
+        })
+        
+    </script>
+</head>
+<body>
+    <input type="text" id="username" name="username" placeholder="请输入用户名">
+    <span id="s_username"></span>
+    <br>
+    <input type="password" name="password" placeholder="请输入密码"><br>
+    <input type="button" value="注册"><br>
+
+
+</body>
+</html>
